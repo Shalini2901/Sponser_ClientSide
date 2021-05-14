@@ -8,69 +8,8 @@ $("#alertError").hide();
 });
 
 
-//SAVE ======================================================
-$(document).on("click", "#btnSave", function(event)
-		{
-		// Clear alerts---------------------
-		//$("#alertSuccess").text("");
-		//$("#alertSuccess").hide();
-		//$("#alertError").text("");
-		//$("#alertError").hide();
-		// Form validation-------------------
-		//var status = validateSponserForm();
-		//if (status != true)
-		//{
-		//$("#alertError").text(status);
-		//$("#alertError").show();
-		//return;
-		//}
-		// If valid------------------------
-		var type = ($("#hidItemIDSave").val() == "") ? "POST" : "PUT";
-		$.ajax(
-		{
-		url : "SponsersAPI",
-		type : type,
-		data : $("#formSponser").serialize(),
-		dataType : "text",
-		complete : function(response, status)
-		{
-		onSponserSaveComplete(response.responseText, status);
-		}
-		});
-		});
-		
-		
-		// UPDATE==========================================
-	$(document).on("click", ".btnUpdate", function(event){
-	$("#hidItemIDSave").val($(this).data("itemid"));
-	$("#sponserID").val($(this).closest("tr").find('td:eq(0)').text());
-	$("#productId").val($(this).closest("tr").find('td:eq(1)').text());
-	$("#firstName").val($(this).closest("tr").find('td:eq(2)').text());
-	$("#lastName").val($(this).closest("tr").find('td:eq(3)').text());
-	$("#sAmount").val($(this).closest("tr").find('td:eq(4)').text());
-	$("#compName").val($(this).closest("tr").find('td:eq(5)').text());
-	});
-	
-	
-	// DELETE==========================================
-	$(document).on("click", ".btnRemove", function(event)
-	{
-	$.ajax(
-	{
-	url : "SponsersAPI",
-	type : "DELETE",
-	data : "id=" + $(this).data("itemid"),
-	dataType : "text",
-	complete : function(response, status)
-	{
-	onSponserDeleteComplete(response.responseText, status);
-	}
-	});
-	});
-	
-	
-	
-	// CLIENT-MODEL================================================================
+
+// CLIENT-MODEL================================================================
 function validateSponserForm()
 {
 // SPONSER_ID
@@ -119,6 +58,79 @@ return "Insert Company Name.";
 }
 return true;
 }
+
+//SAVE ======================================================
+$(document).on("click", "#btnSave", function(event)
+		{
+		
+		// Clear alerts---------------------
+		$("#alertSuccess").text("");
+		$("#alertSuccess").hide();
+		$("#alertError").text("");
+		$("#alertError").hide();
+		
+		//Form validation-------------------
+		var status = validateSponserForm();
+		if (status != true)
+		{
+		$("#alertError").text(status);
+		$("#alertError").show();
+		return;
+		}
+		
+		
+		
+		// If valid------------------------
+		var type = ($("#hidItemIDSave").val() == "") ? "POST" : "PUT";
+		$.ajax(
+		{
+		url : "SponsersAPI",
+		type : type,
+		data : $("#formSponser").serialize(),
+		dataType : "text",
+		complete : function(response, status)
+		{
+		onSponserSaveComplete(response.responseText, status);
+		}
+		});
+		});
+		
+		
+		
+		
+		
+		
+		// UPDATE==========================================
+	$(document).on("click", ".btnUpdate", function(event){
+	$("#hidItemIDSave").val($(this).data("itemid"));
+	$("#sponserID").val($(this).closest("tr").find('td:eq(0)').text());
+	$("#productId").val($(this).closest("tr").find('td:eq(1)').text());
+	$("#firstName").val($(this).closest("tr").find('td:eq(2)').text());
+	$("#lastName").val($(this).closest("tr").find('td:eq(3)').text());
+	$("#sAmount").val($(this).closest("tr").find('td:eq(4)').text());
+	$("#compName").val($(this).closest("tr").find('td:eq(5)').text());
+	});
+	
+	
+	// DELETE==========================================
+	$(document).on("click", ".btnRemove", function(event)
+	{
+	$.ajax(
+	{
+	url : "SponsersAPI",
+	type : "DELETE",
+	data : "id=" + $(this).data("itemid"),
+	dataType : "text",
+	complete : function(response, status)
+	{
+	onSponserDeleteComplete(response.responseText, status);
+	}
+	});
+	});
+	
+	
+	
+	
 
 
 function onSponserSaveComplete(response, status)
