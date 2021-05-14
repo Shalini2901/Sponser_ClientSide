@@ -142,8 +142,7 @@ public class SponserDAOImpl {
 		//close the connection
 			connection.close();
 			String newItems = sponserList();
-			result = "{\"status\":\"success\", \"data\": \"" +
-			newItems + "\"}";
+			result = "{\"status\":\"success\", \"data\": \"" +newItems + "\"}";
 			} catch (SQLException e) {
 				result = "{\"status\":\"error\", \"data\":\"Error while updating the item.\"}";
 				System.err.println(e.getMessage());

@@ -88,14 +88,14 @@ public class SponsersAPI extends HttpServlet {
 	 
 	 sponserDaoObject = new SponserDAOImpl();
 	 
-	 Map paras = getParasMap(request);
-	 String result = sponserDaoObject.updateSponserData(Integer.parseInt(paras.get("hidItemIDSave").toString()),
-    		 Integer.parseInt(paras.get("sponserID").toString()),
-    		 Integer.parseInt(paras.get("productId").toString()),
-    		 paras.get("firstName").toString(),
-    		 paras.get("lastName").toString(),
-    		 Float.parseFloat(paras.get("sAmount").toString()),
-    		 paras.get("compName").toString());
+	 Map para = getParasMap(request);
+	 String result = sponserDaoObject.updateSponserData(Integer.parseInt(para.get("hidItemIDSave").toString()),
+    		 Integer.parseInt(para.get("sponserID").toString()),
+    		 Integer.parseInt(para.get("productId").toString()),
+    		 para.get("firstName").toString(),
+    		 para.get("lastName").toString(),
+    		 Float.parseFloat(para.get("sAmount").toString()),
+    		 para.get("compName").toString());
     		 response.getWriter().write(result);
     
 	}
@@ -106,9 +106,9 @@ public class SponsersAPI extends HttpServlet {
 	protected void doDelete(HttpServletRequest request, HttpServletResponse response)throws ServletException, IOException
 	{
 	 sponserDaoObject = new SponserDAOImpl();
-	 Map paras = getParasMap(request);
-	 String output = sponserDaoObject.deleteSponserData(Integer.parseInt(paras.get("id").toString()));
-	response.getWriter().write(output);
+	 Map para = getParasMap(request);
+	 String output = sponserDaoObject.deleteSponserData(Integer.parseInt(para.get("id").toString()));
+	 response.getWriter().write(output);
 	}
 	
 	
