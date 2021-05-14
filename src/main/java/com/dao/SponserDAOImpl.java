@@ -42,8 +42,8 @@ public class SponserDAOImpl {
 				
 			//close database connection
 				connection.close();
-				String newItems = sponserList();
-				result = "{\"status\":\"success\", \"data\": \"" +newItems + "\"}";
+				String newSponsers = sponserList();
+				result = "{\"status\":\"success\", \"data\": \"" +newSponsers + "\"}";
 			} catch (SQLException e) {
 				result = "{\"status\":\"error\", \"data\":\"Error while inserting the item.\"}";
 				System.err.println(e.getMessage());
@@ -141,8 +141,8 @@ public class SponserDAOImpl {
 			
 		//close the connection
 			connection.close();
-			String newItems = sponserList();
-			result = "{\"status\":\"success\", \"data\": \"" +newItems + "\"}";
+			String newSponsers = sponserList();
+			result = "{\"status\":\"success\", \"data\": \"" +newSponsers + "\"}";
 			} catch (SQLException e) {
 				result = "{\"status\":\"error\", \"data\":\"Error while updating the item.\"}";
 				System.err.println(e.getMessage());
@@ -172,8 +172,8 @@ public class SponserDAOImpl {
 			
 		//close the connection
 			connection.close();
-			String newItems = sponserList();
-			result = "{\"status\":\"success\", \"data\": \"" +newItems + "\"}";
+			String newSponsers = sponserList();
+			result = "{\"status\":\"success\", \"data\": \"" +newSponsers + "\"}";
 			} catch (SQLException e) {
 
 				result = "{\"status\":\"error\", \"data\":\"Error while deleting the item.\"}";
