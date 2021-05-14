@@ -9,7 +9,7 @@ $("#alertError").hide();
 
 
 
-// CLIENT-MODEL================================================================
+// CLIENT-MODEL
 function validateSponserForm()
 {
 // SPONSER_ID
@@ -36,7 +36,7 @@ if ($("#lastName").val().trim() == "")
 return "Insert Last Name.";
 }
 
-// AMOUNT-------------------------------
+// AMOUNT
 if ($("#sAmount").val().trim() == "")
 {
 return "Insert Amount.";
@@ -51,7 +51,7 @@ return "Insert a numerical value for Amount.";
 $("#sAmount").val(parseFloat(tmpAmount).toFixed(2));
 
 
-// COMPANY_NAME------------------------
+// COMPANY_NAME
 if ($("#compName").val().trim() == "")
 {
 return "Insert Company Name.";
@@ -59,7 +59,7 @@ return "Insert Company Name.";
 return true;
 }
 
-//SAVE ======================================================
+//SAVE 
 $(document).on("click", "#btnSave", function(event)
 		{
 		
@@ -100,7 +100,7 @@ $(document).on("click", "#btnSave", function(event)
 		
 		
 		
-		// UPDATE==========================================
+	// UPDATE
 	$(document).on("click", ".btnUpdate", function(event){
 	$("#hidItemIDSave").val($(this).data("itemid"));
 	$("#sponserID").val($(this).closest("tr").find('td:eq(0)').text());
@@ -112,7 +112,7 @@ $(document).on("click", "#btnSave", function(event)
 	});
 	
 	
-	// DELETE==========================================
+	// DELETE
 	$(document).on("click", ".btnRemove", function(event)
 	{
 	$.ajax(

@@ -99,7 +99,7 @@ public class SponserDAOImpl {
 					 
 					// buttons
 					output += "<td><input name='btnUpdate' type='button' value='Update' "
-					+ "class='btnUpdate btn btn-secondary' data-itemid='" + id + "'></td>"
+					+ "class='btnUpdate btn btn-success' data-itemid='" + id + "'></td>"
 					+ "<td><input name='btnRemove' type='button' value='Remove' "
 					+ "class='btnRemove btn btn-danger' data-itemid='" + id + "'></td></tr>";
 					

@@ -11,6 +11,7 @@ public class DBConnection {
 	 try
 	 {
 	 Class.forName("com.mysql.jdbc.Driver");
+	 //Adding necessary details to connect to the Database server
 	 con= DriverManager.getConnection("jdbc:mysql://127.0.0.1:3306/paf_project",
 	 "root", "");
 	 //For testing
